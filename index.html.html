@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REI Genius - Stop Losing Money on Real Estate Deals</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section {
+            padding: 60px 0;
+        }
+
+        /* Header */
+        .header {
+            background: #1a1a1a;
+            color: white;
+            text-align: center;
+            padding: 60px 0 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(ellipse at 20% 30%, rgba(255, 255, 255, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 70%, rgba(255, 255, 255, 0.12) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 50%, rgba(255, 255, 255, 0.08) 0%, transparent 70%);
+            animation: ambientGlow 8s ease-in-out infinite alternate;
+        }
+
+        .header::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(45deg, rgba(255, 255, 255, 0.2), transparent);
+            border-radius: 50%;
+            filter: blur(80px);
+            animation: floatingLight 6s ease-in-out infinite;
+        }
+
+        @keyframes floatingLight {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(-20px, -20px) scale(1.1); }
+        }
+
+        @keyframes ambientGlow {
+            0% { opacity: 0.6; }
+            100% { opacity: 1; }
+        }
+
+        .logo {
+            margin-bottom: 40px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .logo img {
+            max-height: 80px;
+            width: auto;
+        }
+
+        .headline {
+            font-size: 3.5rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+            position: relative;
+            z-index: 2;
+            color: white;
+        }
+
+        .headline .highlight {
+            color: #FFD700;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+        }
+
+        .subheadline {
+            font-size: 1.4rem;
+            margin-bottom: 40px;
+            opacity: 0.95;
+            position: relative;
+            z-index: 2;
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.3);
+            color: white;
+        }
+
+        .cta-button {
+            background: #2d2d2d;
+            color: white;
+            padding: 18px 40px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border: 2px solid #FFD700;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+            background: #FFD700;
+            color: #1a1a1a;
+        }
+
+        /* Who This Is For Section */
+        .who-section {
+            background: #1a1a1a;
+            text-align: center;
+            color: white;
+        }
+
+        .who-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: white;
+        }
+
+        .who-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .who-card {
+            background: #2d2d2d;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease;
+            border-left: 5px solid #FFD700;
+            color: white;
+        }
+
+        .who-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+        }
+
+        .checkmark {
+            color: #28a745;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        /* Video Section */
+        .video-section {
+            background: linear-gradient(135deg, #2d2d2d, #1a1a1a);
+            color: white;
+            text-align: center;
+        }
+
+        .hero-video-container {
+            max-width: 700px;
+            margin: 40px auto;
+            position: relative;
+            z-index: 2;
+            background: #000;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 4px solid transparent;
+            background-clip: padding-box;
+            box-shadow: 
+                0 25px 60px rgba(0,0,0,0.6),
+                0 0 50px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-video-container::before {
+            content: '';
+            position: absolute;
+            top: -4px;
+            left: -4px;
+            right: -4px;
+            bottom: -4px;
+            background: #FFD700;
+            z-index: -1;
+            border-radius: 24px;
+        }
+
+        .hero-video-placeholder {
+            aspect-ratio: 16/9;
+            background: linear-gradient(135deg, #2a2a2a, #1a1a1a);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .hero-video-placeholder:hover {
+            background: linear-gradient(135deg, #333, #222);
+        }
+
+        .hero-video-placeholder:hover .play-button {
+            transform: scale(1.1);
+        }
+
+        .play-button {
+            transition: transform 0.3s ease;
+            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3));
+        }
+
+        .play-button:hover {
+            transform: scale(1.05);
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .video-placeholder {
+            aspect-ratio: 16/9;
+            background: linear-gradient(45deg, #333, #555);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: #FFD700;
+        }
+
+        /* Value Section */
+        .value-section {
+            background: #1a1a1a;
+            color: white;
+        }
+
+        .value-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 50px;
+            margin-top: 50px;
+        }
+
+        .value-card {
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            color: #1a1a1a;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(255, 215, 0, 0.2);
+        }
+
+        .value-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        .value-list {
+            list-style: none;
+        }
+
+        .value-list li {
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .value-list li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        /* How It Works */
+        .how-section {
+            background: #1a1a1a;
+            color: white;
+        }
+
+        .steps-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .step {
+            text-align: center;
+            padding: 30px;
+            background: #2d2d2d;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            position: relative;
+            color: white;
+        }
+
+        .step-number {
+            background: #FFD700;
+            color: #1a1a1a;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0 auto 20px;
+        }
+
+        /* About Johnny */
+        .about-section {
+            background: #1a1a1a;
+            color: white;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .johnny-image {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+        }
+
+        .johnny-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            background: #1a1a1a;
+            color: white;
+        }
+
+        .faq-item {
+            margin-bottom: 20px;
+            border: 1px solid #2d2d2d;
+            border-radius: 10px;
+            overflow: hidden;
+            background: #2d2d2d;
+        }
+
+        .faq-question {
+            background: #2d2d2d;
+            padding: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.3s ease;
+            color: white;
+        }
+
+        .faq-question:hover {
+            background: #3a3a3a;
+        }
+
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            color: white;
+            background: #2d2d2d;
+        }
+
+        .faq-answer.active {
+            padding: 20px;
+            max-height: 200px;
+        }
+
+        /* Final CTA */
+        .final-cta {
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            color: #1a1a1a;
+            text-align: center;
+            padding: 80px 0;
+        }
+
+        .final-cta h2 {
+            font-size: 3rem;
+            margin-bottom: 30px;
+        }
+
+        /* Quiz Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 1000;
+        }
+
+        .modal-content {
+            background: #1a1a1a;
+            max-width: 600px;
+            margin: 5% auto;
+            padding: 40px;
+            border-radius: 20px;
+            position: relative;
+            color: white;
+            border: 1px solid #2d2d2d;
+        }
+
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 30px;
+            cursor: pointer;
+            color: #ccc;
+        }
+
+        .close:hover {
+            color: white;
+        }
+
+        .quiz-question {
+            margin-bottom: 30px;
+        }
+
+        .quiz-options {
+            display: grid;
+            gap: 15px;
+        }
+
+        .quiz-option {
+            padding: 15px;
+            border: 2px solid #3a3a3a;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: #2d2d2d;
+            color: white;
+        }
+
+        .quiz-option:hover, .quiz-option.selected {
+            border-color: #FFD700;
+            background: #3a3a3a;
+        }
+
+        .quiz-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+
+        .quiz-button {
+            background: #FFD700;
+            color: #1a1a1a;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .headline {
+                font-size: 2.5rem;
+            }
+            
+            .hero-video-container {
+                max-width: 90%;
+                margin: 30px auto;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .value-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 50px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <section class="header">
+        <div class="container">
+            <div class="logo">
+                <svg width="300" height="80" viewBox="0 0 400 100">
+                    <text x="0" y="50" font-size="48" font-weight="bold" fill="white">REI</text>
+                    <circle cx="180" cy="35" r="25" fill="none" stroke="white" stroke-width="3"/>
+                    <circle cx="180" cy="35" r="8" fill="white"/>
+                    <path d="M 175 20 L 185 20 M 180 15 L 180 25" stroke="white" stroke-width="2"/>
+                    <text x="210" y="50" font-size="36" font-weight="bold" fill="white">enius</text>
+                    <text x="80" y="75" font-size="14" fill="white" opacity="0.9">CHANGING LIVES THROUGH REAL ESTATE</text>
+                </svg>
+            </div>
+            <h1 class="headline">
+                Tired of <span class="highlight">Losing Money</span><br>
+                on Real Estate Deals?
+            </h1>
+            
+            <!-- Hero Video -->
+            <div class="hero-video-container">
+                <div class="hero-video-placeholder">
+                    <div class="play-button">
+                        <svg width="80" height="80" viewBox="0 0 80 80">
+                            <circle cx="40" cy="40" r="40" fill="rgba(255, 255, 255, 0.9)"/>
+                            <polygon points="32,25 32,55 55,40" fill="#1a1a1a"/>
+                        </svg>
+                    </div>
+                    <p style="position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); color: white; font-size: 1.1rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">🎥 Johnny's Story - Click to Play</p>
+                </div>
+            </div>
+            
+            <p class="subheadline">
+                Learn from My Mistakes — Not Your Wallet.<br>
+                I paid $100K in hard lessons to figure real estate out. You don't have to.
+            </p>
+            <a href="https://www.johnnylynum.com/alignment" target="_blank" class="cta-button">
+                📅 Book Alignment Call Today
+            </a>
+        </div>
+    </section>
+
+    <!-- Who This Is For -->
+    <section class="who-section section">
+        <div class="container">
+            <h2 class="section-title">🎯 Who This Is For</h2>
+            <div class="who-grid">
+                <div class="who-card">
+                    <div class="checkmark">✅</div>
+                    <h3>Military Veterans</h3>
+                    <p>Ready to grow their wealth and leverage their unique benefits</p>
+                </div>
+                <div class="who-card">
+                    <div class="checkmark">✅</div>
+                    <h3>High-Income Earners</h3>
+                    <p>Tired of paycheck anxiety and ready to build passive income</p>
+                </div>
+                <div class="who-card">
+                    <div class="checkmark">✅</div>
+                    <h3>New Investors</h3>
+                    <p>Who don't want to guess their way through real estate</p>
+                </div>
+                <div class="who-card">
+                    <div class="checkmark">✅</div>
+                    <h3>Freedom Seekers</h3>
+                    <p>Looking to use VA loans, rentals, or passive income to build freedom</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What You Get -->
+    <section class="value-section section">
+        <div class="container">
+            <h2 class="section-title">💡 What You Get in Your FREE Alignment Call</h2>
+            <div class="value-grid">
+                <div class="value-card">
+                    <h3>📋 Personalized Assessment</h3>
+                    <ul class="value-list">
+                        <li>Complete analysis of your current financial situation</li>
+                        <li>Identification of your biggest opportunities</li>
+                        <li>Custom roadmap designed for your specific goals</li>
+                        <li>Clear understanding of your next steps</li>
+                    </ul>
+                </div>
+                <div class="value-card">
+                    <h3>🎯 Strategic Planning Session</h3>
+                    <ul class="value-list">
+                        <li>Real strategies that fit your lifestyle and budget</li>
+                        <li>How to leverage VA loans and other benefits</li>
+                        <li>Market opportunities you might be missing</li>
+                        <li>Action plan to get started immediately</li>
+                    </ul>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="https://www.johnnylynum.com/alignment" target="_blank" class="cta-button">
+                    📅 Book Your FREE Alignment Call Now
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-section section">
+        <div class="container">
+            <h2 class="section-title">🧪 How It Works</h2>
+            <div class="steps-container">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Book Your Call</h3>
+                    <p>Click "Book Alignment Call Today" to schedule your free consultation</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Get Personalized Strategy</h3>
+                    <p>Johnny will create a custom plan based on your goals and situation</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Start Building Wealth</h3>
+                    <p>Leave with clear next steps and the confidence to take action</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Johnny -->
+    <section class="about-section section">
+        <div class="container">
+            <div class="about-content">
+                <div class="johnny-image">
+                    <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'><rect width='400' height='300' fill='%23f0f0f0'/><text x='200' y='150' text-anchor='middle' fill='%23999' font-size='20'>Johnny's Photo Here</text></svg>" alt="Johnny Lynum" style="background: #f0f0f0;">
+                </div>
+                <div>
+                    <h2 class="section-title" style="color: white; text-align: left;">🧠 Why It Works</h2>
+                    <p style="font-size: 1.2rem; margin-bottom: 30px;">
+                        You don't need 20% down or perfect credit.<br>
+                        You don't need to be a full-time investor.<br>
+                        You just need guidance, the right strategies — and the willingness to act.
+                    </p>
+                    <p style="font-size: 1.1rem; opacity: 0.9;">
+                        Johnny built his real estate portfolio while still on active duty in the Air Force. 
+                        Now he helps others do the same — with none of the fluff.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section section">
+        <div class="container">
+            <h2 class="section-title">❓ Frequently Asked Questions</h2>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span>I don't have a lot of time — is this for me?</span>
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes. The entire system is designed for busy professionals & service members. We focus on efficient, repeatable frameworks.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span>I've made mistakes before — will this help me avoid more?</span>
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Absolutely. Johnny's entire approach is built on learning from costly mistakes and making sure you don't repeat them.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span>What if I don't qualify?</span>
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>No worries. You'll still get full access to the REI Genius Community for 7 days — completely free.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span>Do I need a VA loan to join?</span>
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>No. We cover multiple strategies, including rentals, creative financing, and more.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta">
+        <div class="container">
+            <h2>🚀 Ready to Start Building Wealth Through Real Estate?</h2>
+            <a href="https://www.johnnylynum.com/alignment" target="_blank" class="cta-button">
+                📅 Book Alignment Call Today
+            </a>
+        </div>
+    </section>
+
+    <!-- Quiz Modal -->
+    <div id="quizModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeQuiz()">&times;</span>
+            <div id="quizContent">
+                <div class="quiz-question">
+                    <h3>Question 1 of 3</h3>
+                    <p>What best describes your current situation?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" onclick="selectOption(this, 'beginner')">
+                            🌱 Complete beginner - I want to learn real estate investing
+                        </div>
+                        <div class="quiz-option" onclick="selectOption(this, 'some-knowledge')">
+                            📚 I have some knowledge but haven't started investing yet
+                        </div>
+                        <div class="quiz-option" onclick="selectOption(this, 'experienced')">
+                            🏠 I have some experience but want to scale my portfolio
+                        </div>
+                        <div class="quiz-option" onclick="selectOption(this, 'veteran')">
+                            🎖️ I'm a military veteran looking to use my benefits
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="quiz-nav">
+                <button class="quiz-button" onclick="prevQuestion()" id="prevBtn" style="display: none;">Previous</button>
+                <button class="quiz-button" onclick="nextQuestion()" id="nextBtn">Next</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentQuestion = 1;
+        let answers = {};
+
+        const questions = [
+            {
+                question: "What best describes your current situation?",
+                options: [
+                    { text: "🌱 Complete beginner - I want to learn real estate investing", value: "beginner" },
+                    { text: "📚 I have some knowledge but haven't started investing yet", value: "some-knowledge" },
+                    { text: "🏠 I have some experience but want to scale my portfolio", value: "experienced" },
+                    { text: "🎖️ I'm a military veteran looking to use my benefits", value: "veteran" }
+                ]
+            },
+            {
+                question: "How much time can you dedicate to real estate investing?",
+                options: [
+                    { text: "⏰ 1-2 hours per week (I'm very busy)", value: "minimal" },
+                    { text: "📅 5-10 hours per week (part-time focus)", value: "moderate" },
+                    { text: "🕐 15+ hours per week (serious commitment)", value: "dedicated" },
+                    { text: "🤔 Not sure - depends on the opportunity", value: "flexible" }
+                ]
+            },
+            {
+                question: "What's your primary goal with real estate?",
+                options: [
+                    { text: "💰 Build passive income for financial freedom", value: "passive-income" },
+                    { text: "🏦 Replace my current job income", value: "replace-income" },
+                    { text: "📈 Build long-term wealth for retirement", value: "wealth-building" },
+                    { text: "🎯 Learn the basics and start small", value: "learn-basics" }
+                ]
+            }
+        ];
+
+        function openQuiz() {
+            document.getElementById('quizModal').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeQuiz() {
+            document.getElementById('quizModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        function selectOption(element, value) {
+            // Remove selected class from all options
+            const options = element.parentNode.querySelectorAll('.quiz-option');
+            options.forEach(opt => opt.classList.remove('selected'));
+            
+            // Add selected class to clicked option
+            element.classList.add('selected');
+            
+            // Store answer
+            answers[currentQuestion] = value;
+        }
+
+        function nextQuestion() {
+            if (!answers[currentQuestion]) {
+                alert('Please select an answer before continuing.');
+                return;
+            }
+
+            if (currentQuestion < 3) {
+                currentQuestion++;
+                updateQuiz();
+            } else {
+                // Quiz completed - determine path
+                determineUserPath();
+            }
+        }
+
+        function prevQuestion() {
+            if (currentQuestion > 1) {
+                currentQuestion--;
+                updateQuiz();
+            }
+        }
+
+        function updateQuiz() {
+            const question = questions[currentQuestion - 1];
+            const quizContent = document.getElementById('quizContent');
+            
+            quizContent.innerHTML = `
+                <div class="quiz-question">
+                    <h3>Question ${currentQuestion} of 3</h3>
+                    <p>${question.question}</p>
+                    <div class="quiz-options">
+                        ${question.options.map(option => 
+                            `<div class="quiz-option" onclick="selectOption(this, '${option.value}')">
+                                ${option.text}
+                            </div>`
+                        ).join('')}
+                    </div>
+                </div>
+            `;
+
+            // Update navigation buttons
+            document.getElementById('prevBtn').style.display = currentQuestion > 1 ? 'block' : 'none';
+            document.getElementById('nextBtn').textContent = currentQuestion === 3 ? 'Get My Results' : 'Next';
+        }
+
+        function determineUserPath() {
+            // Simple logic to determine if user qualifies for call or gets trial
+            const isExperienced = answers[1] === 'experienced' || answers[1] === 'veteran';
+            const isSerious = answers[2] === 'dedicated' || answers[2] === 'moderate';
+            const hasGoals = answers[3] === 'replace-income' || answers[3] === 'passive-income';
+
+            if ((isExperienced || isSerious) && hasGoals) {
+                // Qualified for call
+                showResults('call');
+            } else {
+                // Gets trial
+                showResults('trial');
+            }
+        }
+
+        function showResults(path) {
+            const quizContent = document.getElementById('quizContent');
+            
+            if (path === 'call') {
+                quizContent.innerHTML = `
+                    <div style="text-align: center;">
+                        <h2>🎉 Congratulations!</h2>
+                        <p style="font-size: 1.2rem; margin: 20px 0;">Based on your answers, you qualify for a <strong>FREE Million Dollar Coffee Chat</strong> with Johnny!</p>
+                        <p>This personalized call will help you:</p>
+                        <ul style="text-align: left; margin: 20px 0;">
+                            <li>Get a personalized breakdown of your next steps</li>
+                            <li>Discover strategies that fit your specific goals</li>
+                            <li>Get clarity on your path forward</li>
+                        </ul>
+                        <a href="https://www.johnnylynum.com/alignment" target="_blank" class="cta-button" style="display: inline-block; margin-top: 20px;">
+                            📅 Book Your FREE Call Now
+                        </a>
+                    </div>
+                `;
+            } else {
+                quizContent.innerHTML = `
+                    <div style="text-align: center;">
+                        <h2>🎯 Perfect!</h2>
+                        <p style="font-size: 1.2rem; margin: 20px 0;">You're ready to start your real estate journey with our <strong>7-Day FREE Trial</strong>!</p>
+                        <p>Inside REI Genius Community, you'll get:</p>
+                        <ul style="text-align: left; margin: 20px 0;">
+                            <li>Weekly coaching calls with Johnny</li>
+                            <li>Deal breakdowns and financing strategies</li>
+                            <li>Access to our private investor network</li>
+                            <li>Tools and resources to get started</li>
+                        </ul>
+                        <a href="https://www.skool.com/reigenius/about?ref=081151d5d31044b6808526d03cf5c968&fbclid=PAZXh0bgNhZW0CMTEAAad8BbKXc6WlI_38h5g_BASvZUlBLsDfyfbKPatBaGs-jKbPbaHDJDIIUJWwZw_aem_mWf1YS-eLRoxgjD7PkyFNw" target="_blank" class="cta-button" style="display: inline-block; margin-top: 20px;">
+                            🚀 Start Your FREE 7-Day Trial
+                        </a>
+                    </div>
+                `;
+            }
+
+            // Hide navigation buttons
+            document.querySelector('.quiz-nav').style.display = 'none';
+        }
+
+        function toggleFaq(element) {
+            const answer = element.nextElementSibling;
+            const isActive = answer.classList.contains('active');
+            
+            // Close all FAQs
+            document.querySelectorAll('.faq-answer').forEach(ans => {
+                ans.classList.remove('active');
+            });
+            document.querySelectorAll('.faq-question span:last-child').forEach(icon => {
+                icon.textContent = '+';
+            });
+            
+            // Open clicked FAQ if it wasn't active
+            if (!isActive) {
+                answer.classList.add('active');
+                element.querySelector('span:last-child').textContent = '−';
+            }
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('quizModal');
+            if (event.target === modal) {
+                closeQuiz();
+            }
+        }
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Initialize animations
+        window.addEventListener('load', () => {
+            const animateElements = document.querySelectorAll('.who-card, .value-card, .step');
+            animateElements.forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(30px)';
+                el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>
